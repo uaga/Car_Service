@@ -1,0 +1,47 @@
+﻿@using car_service.DAL.Model
+@model CarsViewModel
+
+@{
+    ViewData["Title"] = "Машины";
+}
+
+<h1>Машины</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Бренд</th>
+        <th>Модель</th>
+        <th>Поколение</th>
+        <th>Регистрационный номер</th>
+        <th>Номер тех.паспорта</th>
+        <th>Цвет</th>
+        <th>Дата выпуска</th>
+        <th>Номер двигателя</th>
+        <th>VIN номер кузова</th>
+        <th></th>
+    </tr>
+    @foreach (Car customer in Model.Cars)
+    {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@customer.Brand</td>
+            <td>@customer.Models</td>
+            <td>@customer.Gen</td>
+            <td>@customer.RegNumber</td>
+            <td>@customer.TechPassport</td>
+            <td>@customer.Color</td>
+            <td>@customer.ReleaseDate</td>
+            <td>@customer.EngineNumber</td>
+            <td>@customer.BodyNumber</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>

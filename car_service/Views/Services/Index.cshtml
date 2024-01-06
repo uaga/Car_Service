@@ -1,0 +1,39 @@
+﻿@using car_service.DAL.Model
+@model ServicesViewModel
+
+@{
+    ViewData["Title"] = "Сервисы";
+}
+
+<h1>Сервисы</h1>
+
+<p>
+    <a asp-action="Create">Добавить новый сервис</a>
+</p>
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Наименование</th>
+        <th>Описание</th>
+        <th>Стоимость</th>
+        <th>Время работы (дни)</th>
+        <th>Гарантийный период (дни)</th>
+        <th></th>
+    </tr>
+    @foreach (Service service in Model.Services)
+    {
+        <tr>
+            <td>@service.Id</td>
+            <td>@service.Name</td>
+            <td>@service.Description</td>
+            <td>@service.Cost</td>
+            <td>@service.ExecutionPeriod</td>
+            <td>@service.Warranty</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>

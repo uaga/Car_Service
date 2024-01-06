@@ -1,0 +1,34 @@
+﻿@using car_service.DAL.Model
+@model OrdersViewModel;
+@{
+    ViewData["Title"] = "Сервисы";
+}
+
+<h1>Заказы</h1>
+
+<p>
+    <a asp-action="Create">Добавить новый заказ</a>
+</p>
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>ФИО клиента</th>
+        <th>Номер машины</th>
+        <th>Дата заключения договора</th>
+        <th>Предполагаемая дата выполнения</th>
+        <th>Фактическая дата выполнения</th>
+        <th>Стоимость работ</th>
+    </tr>
+    @foreach (Order order in Model.Orders)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.Client</td>
+            <td>@order.Car</td>
+            <td>@order.dateOfReceint</td>
+            <td>@order.assessmenDeadline</td>
+            <td>@order.dateCompletion</td>
+            <td>@order.Cost</td>
+        </tr>
+    }
+</table>

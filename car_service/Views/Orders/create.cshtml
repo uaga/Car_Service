@@ -1,0 +1,42 @@
+﻿@model AddOrderViewModel
+@using car_service.BL.Implementations;
+@using car_service.BL.Interfaces;
+@using car_service.DAL.Implementations;
+@using car_service.DAL.Interfaces;
+
+@{
+    ViewData["Title"] = "Новый заказ";
+}
+
+<h1>Новый заказ</h1>
+
+<div class="form-container">
+    <h2>Добавить Авто</h2>
+    <form id="order-form" asp-action="create">
+        <div class="form-group">
+            <label for="Customer">Клиент: </label>
+            @Html.DropDownListFor(Model => Model.Customer,
+                     new SelectList(new CustomerBL(new CustomerDAL()).GetAll(), "Id", "FullName"))
+        </div>
+        <a class="add-link" asp-controller="customers" asp-action="create">Добавить</a>
+        <div class="form-group">
+            <label for="Car">Машина: </label>
+            @Html.DropDownListFor(Model => Model.Car,
+                     new SelectList(new CarBL(new CarDAL()).GetAll(), "Id", "RegNumber"))
+        </div>
+        <a class="add-link" asp-controller="cars" asp-action="create">Добавить</a>
+        <div class="form-group">
+            <label for="Services">Услуги: </label>
+            @Html.ListBox("Services",
+                     new MultiSelectList(new ServiceBL(new ServiceDAL()).GetAll(), "Id", "Name"))
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="javascript:history.go(-1)">Назад</a>
+</div>

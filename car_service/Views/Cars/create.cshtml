@@ -1,0 +1,56 @@
+﻿@model car_service.DAL.Model.Car
+
+@{
+    ViewData["Title"] = "create";
+}
+
+<h1>create</h1>
+
+<div class="form-container">
+    <h2>Добавить Авто</h2>
+    <form id="car-form" asp-action="create">
+        <div class="form-group">
+            <label for="brand">Бренд:</label>
+            <input type="text" id="brand" name="brand" required>
+        </div>
+        <div class="form-group">
+            <label for="models">Модель:</label>
+            <input type="text" id="models" name="models" required>
+        </div>
+        <div class="form-group">
+            <label for="gen">Поколение:</label>
+            <input type="text" id="gen" name="gen" required>
+        </div>
+        <div class="form-group">
+            <label for="color">Цвет:</label>
+            <input type="text" id="color" name="color" required>
+        </div>
+        <div class="form-group">
+            <label for="regNumber">Регистрационный номер:</label>
+            <input type="text" id="regNumber" name="regNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="techPassport">Номер тех.паспорта:</label>
+            <input type="text" id="techPassport" name="techPassport" required>
+        </div>
+        <div class="form-group">
+            <label for="releaseDate">Дата выпуска:</label>
+            <input type="date" id="releaseDate" name="releaseDate" required>
+        </div>
+        <div class="form-group">
+            <label for="engineNumber">Номер двигателя:</label>
+            <input type="text" id="engineNumber" name="engineNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="bodyNumber">Номер кузова:</label>
+            <input type="text" id="bodyNumber" name="bodyNumber" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="javascript:history.go(-1)">Назад</a>
+</div>
